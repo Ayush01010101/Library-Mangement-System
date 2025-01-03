@@ -1,8 +1,15 @@
 import mongoose from "mongoose";
 import bcrypt from 'bcrypt'
-import { v4 as uniqueid } from 'uuid';
+import {v4 as Uuid} from 'uuid'
+
+import jwt from 'jsonwebtoken'
 
 const UserSchema=new mongoose.Schema({
+    id:{
+        type:String,
+        default:()=>Uuid()
+    },
+
     username:{
         type:String,
         required:true
@@ -28,8 +35,29 @@ UserSchema.pre('save',async function(next){
 })
 
 UserSchema.methods.IsPasswordCorrect=async function (password){
-    return await bcrypt.compare(password,this.password)
+    
+    if (!this.password) {
+       
+        throw new Error('Password not set for this user.');
+    }
+    return await bcrypt.compare(password, this.password);
 }
+
+
+UserSchema.methods.Generatejwttoken=async function (){
+    return jwt.sign(
+        {
+            username:this.username
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        {
+            expiresIn:process.env.ACCESS_TOKEN_EXPIRY  
+        }
+
+
+    )
+}
+
 
 
 
