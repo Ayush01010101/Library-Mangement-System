@@ -7,7 +7,7 @@ const router=Router()
 
 
 router.route("/addbook").post(jwtverify,Addbook)
-router.route("/getbooks").get(Getbooks)
+router.route("/getbooks/:limit?").get(Getbooks)
 router.route("/updatebook/:id").put(jwtverify,Updatebook)
 router.route("/deletebook/:id").delete(jwtverify,Deletebook)
 router.route("/updatestatus/:id").patch(jwtverify,Updatestatus)

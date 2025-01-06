@@ -5,5 +5,5 @@ const router=Router()
 
 router.route("/signup").post(Signupuser)
 router.route("/login").post(Loginuser,jwtverify)
-
+router.route("/logout").post(Logout)
 export {router}
