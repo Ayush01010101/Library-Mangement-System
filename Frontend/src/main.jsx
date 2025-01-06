@@ -16,6 +16,7 @@ import Updatebook from './pages/Updatebook.page.jsx';
 
 
 // Pages
+import Test from './pages/Testpage.jsx';
 import Homepage from './pages/Home.page.jsx';
 import Loginpage from './pages/Login.page.jsx';
 import Signuppage from './pages/Signup.page.jsx';
@@ -76,6 +77,17 @@ const AnimatedRoutes = () => {
             <Updatebook/>
 
           </PageWrapper>
+        }
+        />
+
+        <Route
+        
+        path="/test"
+        element={
+          <PageWrapper>
+          <Test/>
+
+        </PageWrapper>
         }
         />
 
