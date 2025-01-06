@@ -7,7 +7,7 @@ const app=express()
 
 
 app.use(cors({
-    origin:"https://peppy-pegasus-e61b72.netlify.app",
+    origin:"/*",
     credentials:true,
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }))
