@@ -99,9 +99,9 @@ const Loginuser=AsyncHandler(async(req,res)=>{
     }   
 
     const options ={
-        httpOnly:true,
-        secure:true,
-        sameSite:'lax', 
+        httpOnly:false,
+        secure:false,
+        sameSite:'none', 
         maxAge:(7 * 24 * 60 * 60 * 1000)
        
     }
@@ -126,9 +126,9 @@ const Logout=AsyncHandler(async function (){
     //clear the cookies from browswer 
     
     const options ={
-        httpOnly:true,
-        secure:true,
-        sameSite:'lax'
+        httpOnly:false,
+        secure:false,
+        sameSite:'none'
     }
 
 

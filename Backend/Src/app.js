@@ -9,7 +9,7 @@ const app=express()
 app.use(cors({
     origin:"https://librarymangementsystem0101.netlify.app",
     credentials:true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
+
 }))
 
 app.use(json({limit:'16kb'}))
