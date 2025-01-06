@@ -35,7 +35,7 @@ const Signupuser=AsyncHandler(async(req,res)=>{
    const newuser=await User.findOne({username}).select('-password') //removing password from  object 
    
    if(!newuser){
-    throw new ApiError(500,'Failed to create user. Please try again later.')
+        throw new ApiError(500,'Failed to create user. Please try again later.')
    }
 
 
@@ -121,7 +121,7 @@ const Loginuser=AsyncHandler(async(req,res)=>{
 
 
 
-const Logout=AsyncHandler(async function (){
+const Logout=AsyncHandler(async function (req,res){
     //todos
     //clear the cookies from browswer 
     
